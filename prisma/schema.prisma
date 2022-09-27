@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model previous_jobs {
+  id Int @unique @default(autoincrement())
+
+  // Job Information.
+  title       String @db.LongText
+  company     String @db.Text
+  description String @db.LongText
+  location    String
+
+  started_at DateTime // When I Started the job.
+  ended_at   DateTime? // When I left the job.
+
+  // Relations
+  bullets previous_job_bullets[]
+}
+
+model previous_job_bullets {
+  id     Int @unique @default(autoincrement())
+  job_id Int
+  content String @db.LongText
+
+  job previous_jobs @relation(fields: [job_id], references: [id])
+}
