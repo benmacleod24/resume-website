@@ -28,6 +28,9 @@ const GET = async (req: NextApiRequest, res: NextApiResponse) => {
 		include: {
 			bullets: true,
 		},
+		orderBy: {
+			started_at: 'desc',
+		},
 	});
 
 	// Verify we collected the jobs and it's not an error.

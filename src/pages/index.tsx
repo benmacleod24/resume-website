@@ -6,26 +6,21 @@ import {
 	ListItem,
 	UnorderedList,
 	Grid,
+	Container,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { Prisma } from '@prisma/client';
 import React from 'react';
 import MyJobs from '@frontend/components/jobs';
-
-type jobsSwrType = Prisma.previous_jobsGetPayload<{
-	include: {
-		bullets: true;
-	};
-}>;
+import Layout from '@frontend/components/layout';
 
 const Home: NextPage = () => {
-	const { data, isValidating } =
-		useSWR<ApiResponse<jobsSwrType[]>>('/api/jobs');
-
 	return (
-		<Flex flexDir={'column'}>
-			<MyJobs />
-		</Flex>
+		<Layout>
+			<Flex flexDir={'column'} w='full' mt='3'>
+				<MyJobs />
+			</Flex>
+		</Layout>
 	);
 };
 

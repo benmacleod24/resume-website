@@ -19,7 +19,7 @@ const JobCard: React.FunctionComponent<JobCardProps> = ({ job }) => {
 
 	return (
 		<Flex
-			w='xs'
+			w={['sm', 'sm', 'sm', 'sm', 'sm', 'sm', 'xs']}
 			bg='gray.700'
 			p='3'
 			rounded={'md'}

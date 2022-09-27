@@ -17,7 +17,7 @@ const MyJobs: React.FunctionComponent = ({}) => {
 
 	return (
 		<Flex flexDir={'column'}>
-			<Flex align={'center'} gap={2} mb='2'>
+			<Flex align={'center'} gap={2} mb='1.5'>
 				<Icon as={MdWork} fontSize='xl' color='blue.300' />
 				<Text fontWeight={'bold'} fontSize='lg'>
 					My Jobs
@@ -26,6 +26,7 @@ const MyJobs: React.FunctionComponent = ({}) => {
 			<Grid
 				w='fit-content'
 				templateColumns={[
+					'repeat(1, 1fr)',
 					'repeat(1, 1fr)',
 					'repeat(2, 1fr)',
 					'repeat(3, 1fr)',
